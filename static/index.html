@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Grooming IS — Расписание</title>
+    <link rel="stylesheet" href="css/schedule.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="logo">Grooming IS</div>
+        <nav>
+            <a class="active">Расписание</a>
+            <a>Заявки</a>
+            <a>Клиенты</a>
+            <a>Настройки</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <!-- 🔹 ЕДИНАЯ ВЕРХНЯЯ ПАНЕЛЬ -->
+        <div class="topbar">
+
+            <!-- МАСТЕРА -->
+            <select id="masterFilter">
+                <option value="">Все мастера</option>
+                <option>Мастер 1</option>
+                <option>Мастер 2</option>
+            </select>
+
+            <!-- ДАТА + СТРЕЛКИ -->
+            <div class="period-control">
+                <span class="arrow" id="prevPeriod">‹</span>
+                <span id="currentPeriod" class="current-period"></span>
+                <span class="arrow" id="nextPeriod">›</span>
+            </div>
+
+            <!-- ВИД -->
+            <div class="view-switch">
+                <button id="dayBtn">День</button>
+                <button id="weekBtn" class="active">Неделя</button>
+            </div>
+        </div>
+
+        <div id="schedule"></div>
+
+        <div class="create-wrapper">
+            <button id="createOrderBtn" class="create-btn">
+                + Создать заявку
+            </button>
+        </div>
+
+    </main>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Создание заявки</h3>
+            <span class="close-btn" id="closeModal">×</span>
+        </div>
+
+        <div class="modal-body">
+            <label>Телефон *</label>
+            <input type="text">
+
+            <label>ФИО *</label>
+            <input type="text">
+
+            <label>Питомец</label>
+            <input type="text" placeholder="Кличка">
+            <input type="text" placeholder="Вид">
+            <input type="text" placeholder="Порода">
+
+            <label>Мастер</label>
+            <select>
+                <option>Мастер 1</option>
+                <option>Мастер 2</option>
+            </select>
+
+            <label>Услуга</label>
+            <select id="serviceSelect">
+                <option value="">Выберите услугу</option>
+                <option value="2000">Комплексный уход</option>
+                <option value="1500">Гигиенический уход</option>
+            </select>
+
+            <label>Цена</label>
+            <input type="number" id="price">
+
+            <label>Дата</label>
+            <input type="date" id="orderDate">
+            
+            <label>Время</label>
+            <div class="time-control">
+                <select id="hourSelect"></select>
+                <span class="time-separator">:</span>
+                <select id="minuteSelect"></select>
+            </div>
+
+
+            <label>Комментарий</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <div class="modal-footer">
+            <button class="cancel" id="cancelBtn">Отмена</button>
+            <button class="save">Сохранить</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/schedule.js"></script>
+</body>
+</html>
