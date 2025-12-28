@@ -36,7 +36,8 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     login = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False)
-    role = Column(Enum(UserRole), nullable=False)
+    role = Column(String, nullable=False)
+    full_name = Column(String, nullable=False)
     active = Column(Boolean, default=True)
 
 
@@ -99,7 +100,8 @@ class Breed(Base):
     __tablename__ = "breeds"
 
     id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False, unique=True)
+    name = Column(String, nullable=False)
+    species = Column(String, nullable=False)  # dog / cat
 
     # если None — размер выбирается вручную (дворняжки)
     default_size = Column(Enum(PetSize), nullable=True)

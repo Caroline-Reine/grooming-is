@@ -69,7 +69,7 @@ class OrderRead(BaseModel):
     start_time: str
     end_time: str
     price: int
-    status: OrderStatus
+    status: str
 
     client_name: str
     pet_name: str
@@ -88,3 +88,16 @@ class ExtraServiceRead(BaseModel):
 
     class Config:
         from_attributes = True
+
+class OrderUpdate(BaseModel):
+    date: date
+    start_time: str
+    master_id: int
+    service_id: int
+    extra_service_ids: List[int] = []
+    price: Optional[int] = None
+    comment: Optional[str] = None
+
+
+class OrderStatusUpdate(BaseModel):
+    status: str
